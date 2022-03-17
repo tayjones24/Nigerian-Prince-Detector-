@@ -238,6 +238,7 @@ it("should return if the sender is a real prince", function () {
 var assert = require("assert");
 describe("check tests ", function () {
 it("should return count of test passed", function () {
+  console.log("Dr. Ferrari");
   assert.equal(testInfo.getCountTest(),true);
 
  });
