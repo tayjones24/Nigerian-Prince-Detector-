@@ -1,0 +1,21 @@
+@Test 
+	void testGrammar() {
+		String[] tests = new String[3];
+		tests[0] = "The quick brown fox jumped over the lazy dog. This is the correct one.";
+		tests[1] = "The mIdochrondia iS th3 pppppppower house of the cell bro!!!!1!!";
+		tests[2] = "I am a Nig3r1an Pr1NC3! i Am here to gIv mOneys!!!!";
+		int passCount = 0;
+		int punctCount = 0; 
+		for(int i = 0; i < tests.length; i++) {
+			for(int j = 0; j < tests[i].length();j++) {
+				if((tests[i].charAt(j) == '.' || tests[i].charAt(j) == '!' || tests[i].charAt(j) == '?') && j != tests[i].length()) {
+					punctCount++;
+					if(Character.isUpperCase(tests[i].charAt(j+2)) && tests[i].charAt(j+1) == ' ') {
+						passCount++;
+					}
+				}
+			}
+		}
+		assertEquals(passCount, punctCount);
+		fail("Not yet implemented");
+	}
