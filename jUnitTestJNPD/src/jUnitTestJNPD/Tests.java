@@ -33,7 +33,7 @@ public class Tests {
 		Scanner scan = new Scanner(System.in);
 		String answer = scan.next();
 		boolean isNigerian = true;
-		if (answer != "Muhammadu Buhari") {
+		if (answer != "Muha mmadu Buha ri") {
 			isNigerian = false;
 		}
 		assertEquals(isNigerian, true);
