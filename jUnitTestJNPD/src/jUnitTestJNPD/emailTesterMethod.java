@@ -1,6 +1,6 @@
-package jUnitTest;
+package jUnitTestJNPD;
 
-public class Manager {
+public class emailTesterMethod {
 	String email;
 	public static boolean isRealEmail(String email) {
 		if(email.contains("@")) {

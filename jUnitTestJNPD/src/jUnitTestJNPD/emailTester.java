@@ -1,7 +1,11 @@
-package jUnitTest;
+package jUnitTestJNPD;
+
+import static org.junit.Assert.fail;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
+
 class TestUtilities {
-    Manager mangage;
+    emailTesterMethod mangage;
     Boolean emails;
 	@Test
 	public void happyPath() {
@@ -21,3 +25,4 @@ class TestUtilities {
 		emails = mangage.isRealEmail(s);
 		assertEquals(emails,false);
 	}
+}
