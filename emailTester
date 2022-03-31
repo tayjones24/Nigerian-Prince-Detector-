@@ -3,7 +3,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class TestUtilities {
     Manager manage;
     Boolean email;
-	@Test // my tester 
+	@Test // my tester !
 	public void happyPath() {
 		String email = "bahahaha@yahoo.com";
 		email = Manager.isRealEmail(email);
