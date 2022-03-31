@@ -11,7 +11,7 @@ class TestUtilities {
 	}
 	@Test
 	public void unhappyPath() {
-		String s = "baheeeeee@yahoommmm"; //tests
+		String s = "baheeeeee@yahoommmm"; //tests!
 		email = Manager.isRealEmail(s);
 		assertEquals(email,false);
 	}

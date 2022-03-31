@@ -14,7 +14,7 @@ public class Manager {
 				if(count>1) {
 					return false;
 				}
-			}  // makes sure @ is only 1 !!!!
+			}  // makes sure @ is only 1 !!!!!
 		   if(email.length()<8) { // email has to have a 4 letter ending + @ + shortest @ blank is universities. + has to have a letter at least in front
 			   return false;
 		   }
