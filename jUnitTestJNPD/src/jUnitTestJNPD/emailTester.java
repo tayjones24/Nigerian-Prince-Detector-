@@ -5,7 +5,7 @@ class TestUtilities {
     Boolean emails;
 	@Test
 	public void happyPath() {
-		String email = "bahahaha@yahoo.com";
+		String email = "bahahaha@yahoo.com"; //h
 		emails = mangage.isRealEmail(email);
 		assertEquals(emails,true);
 	}
