@@ -22,6 +22,9 @@ public class testQuestion {
 		if (scan.next() == answer) {
 			return true;
 		}
+		
+		System.out.println("Yeehaw");
+		
 		return false;
 
 	}
