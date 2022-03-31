@@ -1,11 +1,15 @@
-package jUnitTest;
+package jUnitTestJNPD;
+
+import static org.junit.Assert.fail;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
+
 class TestUtilities {
-    Manager mangage;
+    emailTesterMethod mangage;
     Boolean emails;
 	@Test
 	public void happyPath() {
-		String email = "bahahaha@yahoo.com"; //h
+		String email = "bahahaha@yahoo.com"; 
 		emails = mangage.isRealEmail(email);
 		assertEquals(emails,true);
 	}
@@ -21,6 +25,7 @@ class TestUtilities {
 		emails = mangage.isRealEmail(s);
 		assertEquals(emails,false);
 	}
+
 	@Test
 	public void unhappyPath2() {
 		String s = "djeiufhre9igju3pwiou@@@gj9pwhdgupgh89pgweh";
@@ -28,3 +33,6 @@ class TestUtilities {
 		assertEquals(emails,false);
 	}
 	
+
+}
+

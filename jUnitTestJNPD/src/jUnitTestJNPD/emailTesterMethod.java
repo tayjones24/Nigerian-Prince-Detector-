@@ -1,6 +1,6 @@
-package jUnitTest;
+package jUnitTestJNPD;
 
-public class Manager {
+public class emailTesterMethod {
 	String email;
 	char a;
 	int count =0;
