@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 public class Tests {
 
 	testQuestion question;
-	capsCheck capsCheck; // sara was here
+	capsCheck capsCheck; 
   
 	/**
 	 * Gives a test question to the user and asks the user to answer If the user

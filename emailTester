@@ -1,23 +1,36 @@
 package jUnitTest;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 class TestUtilities {
-    Manager mangage;
-    Boolean emails;
-	@Test
+    Manager manage;
+    Boolean email;
+	@Test // my tester !!
 	public void happyPath() {
 		String email = "bahahaha@yahoo.com";
-		emails = mangage.isRealEmail(email);
-		assertEquals(emails,true);
+		email = Manager.isRealEmail(email);
+		assertEquals(email,true);
 	}
 	@Test
 	public void unhappyPath() {
-		String s = "baheeeeee@yahoommmm";
-		emails = mangage.isRealEmail(s);
-		assertEquals(emails,false);
+		String s = "baheeeeee@yahoommmm"; //tests!
+		email = Manager.isRealEmail(s);
+		assertEquals(email,false);
 	}
 	@Test
 	public void unhappyPath1() {
 		String s = "djeiufhre9igju3pwiougj9pwhdgupgh89pgweh";
-		emails = mangage.isRealEmail(s);
-		assertEquals(emails,false);
+		email = Manager.isRealEmail(s);
+		assertEquals(email,false);
 	}
+	@Test
+	public void unhappyPath3() {
+		String s = "theNIGEREANPRINCE@@@@@@awesome.com";
+		email = Manager.isRealEmail(s);
+		assertEquals(email,false);
+	}
+	@Test
+	public void unhappyPath4() {
+		String s = "ZPRINCE";
+		email = Manager.isRealEmail(s);
+		assertEquals(email,false);
+	}
+}
