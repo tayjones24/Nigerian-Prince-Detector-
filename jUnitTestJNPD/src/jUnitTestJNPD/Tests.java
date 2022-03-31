@@ -37,7 +37,7 @@ public class Tests {
 			isNigerian = false;
 		}
 		assertEquals(isNigerian, true);
-		fail("not yet implemented");
+		fail("not yet impleme nted");
 	}
 
 	/**
