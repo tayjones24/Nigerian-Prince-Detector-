@@ -21,3 +21,10 @@ class TestUtilities {
 		emails = mangage.isRealEmail(s);
 		assertEquals(emails,false);
 	}
+	@Test
+	public void unhappyPath2() {
+		String s = "djeiufhre9igju3pwiou@@@gj9pwhdgupgh89pgweh";
+		emails = mangage.isRealEmail(s);
+		assertEquals(emails,false);
+	}
+	
