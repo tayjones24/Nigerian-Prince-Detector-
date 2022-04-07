@@ -1,6 +1,7 @@
 package jUnitTestJNPD;
 
 import static org.junit.Assert.fail;
+import java.sql.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Scanner;
@@ -79,6 +80,39 @@ public class Tests {
 		assertEquals(isWorking, false);
 		isWorking = comma.testPunct(tests[2]);
 		assertEquals(isWorking, false);
+	}
+	
+	
+	/**
+	 * Testing the connection to the database and if it functions correctly by
+	 * checking if the url and the user belongs to the right database and also
+	 * checking if going through the database creates correct results
+	 */
+	@Test
+	public void connectionDBTest() {
+		connectionDB connection = new connectionDB();
+		assertEquals(connection.DB_URL, "jdbc:mysql://localhost:3306/Nigerian Princes");
+		assertEquals(connection.USER, "root");
+		Connection connect = connection.connectDB();
+
+		PreparedStatement p = null;
+		ResultSet rs = null;
+
+		try {
+			String sql = "SELECT * FROM `Nigerian Royalty Names` WHERE ID = 1";
+
+			p = connect.prepareStatement(sql);
+			rs = p.executeQuery();
+
+			if (rs.next()) {
+				int id = rs.getInt("id");
+				String name = rs.getString("name");
+				assertEquals(id, 1);
+				assertEquals(name, "Abdullahi Ahmed Sumaila");
+			}
+		} catch (SQLException e) {
+			System.out.println(e);
+		}
 	}
 
 }
