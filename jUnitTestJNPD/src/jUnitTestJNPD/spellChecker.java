@@ -10,7 +10,7 @@ public class spellChecker {
     messageWriter.addMouseListener(new PopupListener(popup));
     @Test
     public void happySpell(){
-    	String email = "I am a prince.I want to give you all the money."; //i am struggling to get  this dictionary set up the rest of the way. have spent a few hrs researching dictionaries
+    	String email = "I am a prince.I want to give you all the money."; //i am struggling to get this dictionary set up the rest of the way. have spent a few hrs researching dictionaries
     	
     	
          assertEquals(emails,0);
