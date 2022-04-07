@@ -4,7 +4,7 @@ public class SpellCheckerMethod {
 	
     public void isSpelledCorrectly(String email) {
     	for(int i<0;i<email.length();i++) {
-    		email[i] = SpellChecker.createCheckerPopup(sco);   
+    		email[i] = SpellChecker.createCheckerPopup(sco);    
     		
     	}
     }
