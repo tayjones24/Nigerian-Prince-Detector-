@@ -1,9 +1,10 @@
 package jUnitTestJNPD;
 
-import org.junit.jupiter.api.Test;
-
 public class commaTester {
-	@Test
+
+	/**
+	 * Checks if the punctuation and the capitalization is correct
+	 */
 	boolean testPunct(String tests) {
 		int passCount = 0;
 		int punctCount = 0;
@@ -14,7 +15,6 @@ public class commaTester {
 				if (Character.isUpperCase(tests.charAt(i + 2)) && tests.charAt(i + 1) == ' '
 						&& i + 2 != tests.length()) {
 					passCount++;
-					return false;
 				}
 			}
 		}

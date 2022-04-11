@@ -1,6 +1,9 @@
 package jUnitTestJNPD;
 
 import static org.junit.Assert.fail;
+
+import java.io.ByteArrayOutputStream;
+import java.io.OutputStream;
 import java.sql.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -10,10 +13,10 @@ import org.junit.jupiter.api.Test;
 
 public class Tests {
 
-	testQuestion question;
-	capsCheck capsCheck; 
-	commaTester comma;
-  
+	testQuestion question = new testQuestion();
+	capsCheck capsCheck = new capsCheck();
+	commaTester comma = new commaTester();
+
 	/**
 	 * Gives a test question to the user and asks the user to answer If the user
 	 * answers correctly, returns true. else, false.
@@ -67,6 +70,11 @@ public class Tests {
 		boolean isProperPara = capsCheck.properCaps(para);
 		assertEquals(isProperPara, false);
 	}
+
+	/**
+	 * Testing the testPunctuation method that checks if there a good punctuation
+	 * through out the email
+	 */
 	@Test
 	public void happyCommaTest() {
 		String[] tests = new String[3];
@@ -81,8 +89,7 @@ public class Tests {
 		isWorking = comma.testPunct(tests[2]);
 		assertEquals(isWorking, false);
 	}
-	
-	
+
 	/**
 	 * Testing the connection to the database and if it functions correctly by
 	 * checking if the url and the user belongs to the right database and also
@@ -113,6 +120,42 @@ public class Tests {
 		} catch (SQLException e) {
 			System.out.println(e);
 		}
+	}
+
+	/**
+	 * Tests the print database function to make sure the database content is
+	 * equivalent to the content that is printed
+	 * 
+	 * @throws Exception
+	 */
+	@Test
+	public void printDBTest() throws Exception {
+		connectionDB connection = new connectionDB();
+		OutputStream os = new ByteArrayOutputStream();
+		String databaseString = connection.database;
+		byte[] bytes = databaseString.getBytes();
+		os.write(bytes);
+		String actualOutput = os.toString();
+		String expectedOutput = databaseString;
+		assertEquals(actualOutput, expectedOutput);
+	}
+
+	/**
+	 * Tests the isLegit function to verify that the given name correctly compared
+	 * to the names in the database and the correct message is displayed after
+	 * comparing database names with the given name.
+	 */
+	@Test
+	public void isLegitTest() {
+		connectionDB connection = new connectionDB();
+		String legitResponse = "Yes, it is a real Nigerian Royalty";
+		String notLegitResponse = "Name not found. Not a real Nigerian Royalty!";
+
+		assertEquals(connection.isLegit("Muhammed Bello"), legitResponse);
+		assertEquals(connection.isLegit("Josiah Kantiyok"), legitResponse);
+		assertEquals(connection.isLegit("muhammed bello"), notLegitResponse);
+		assertEquals(connection.isLegit(""), notLegitResponse);
+		assertEquals(connection.isLegit("Mike Smith"), notLegitResponse);
 	}
 
 }
