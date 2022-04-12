@@ -4,7 +4,7 @@ public class Manager {
 	String email;
 	char a;
 	int count =0;
-	public static boolean isRealEmail(String email) {
+	public static boolean isRealEmail(String email) { 
 		for(int i=0;i<email.length(;i++)) {
 			a = email.CharAt(i);
 			if(a ='@') {
