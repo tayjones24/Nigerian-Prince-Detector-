@@ -12,6 +12,10 @@ public class Tests {
 	testQuestion question;
 	capsCheck capsCheck; // sara was here
 
+	 
+	commaTester comma;
+  
+
 	/**
 	 * Gives a test question to the user and asks the user to answer If the user
 	 * answers correctly, returns true. else, false.
@@ -59,11 +63,26 @@ public class Tests {
 	 * 
 	 * In this instance it should be false.
 	 */
+	@Test
 	public void sadCheckCapitalization() {
 		String para = "Hello my name is Muhammadu Buhari and i am the president of Nigeria. I have been president for 13 years now. my favorite thing to do is to stream fortnite on discord.";
 		boolean isProperPara = capsCheck.properCaps(para);
 		assertEquals(isProperPara, false);
 		System.out.println("Hello");
+	}
+	@Test
+	public void happyCommaTest() {
+		String[] tests = new String[3];
+		tests[0] = "The quick brown fox jumped over the lazy dog. This is the correct one.";
+		tests[1] = "The mIdochrondia iS th3 pppppppower house of the cell bro!!!!1!!";
+		tests[2] = "I am a Nig3r1an Pr1NC3! i Am here to gIv mOneys!!!!";
+		boolean isWorking;
+		isWorking = comma.testPunct(tests[0]);
+		assertEquals(isWorking, true);
+		isWorking = comma.testPunct(tests[1]);
+		assertEquals(isWorking, false);
+		isWorking = comma.testPunct(tests[2]);
+		assertEquals(isWorking, false);
 	}
 
 }

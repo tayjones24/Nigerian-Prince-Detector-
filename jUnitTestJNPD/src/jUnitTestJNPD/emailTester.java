@@ -9,7 +9,7 @@ class TestUtilities {
     Boolean emails;
 	@Test
 	public void happyPath() {
-		String email = "bahahaha@yahoo.com";
+		String email = "bahahaha@yahoo.com"; 
 		emails = mangage.isRealEmail(email);
 		assertEquals(emails,true);
 	}
@@ -25,4 +25,14 @@ class TestUtilities {
 		emails = mangage.isRealEmail(s);
 		assertEquals(emails,false);
 	}
+
+	@Test
+	public void unhappyPath2() {
+		String s = "djeiufhre9igju3pwiou@@@gj9pwhdgupgh89pgweh";
+		emails = mangage.isRealEmail(s);
+		assertEquals(emails,false);
+	}
+	
+
 }
+
