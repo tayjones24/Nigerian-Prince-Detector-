@@ -13,7 +13,7 @@ export interface AppState {
 }
 
 export default class App extends React.Component<AppProps, AppState> {
-  constructor(props, context) {
+  constructor(props: AppProps, context) {
     super(props, context);
     this.state = {
       body: "",
@@ -21,15 +21,14 @@ export default class App extends React.Component<AppProps, AppState> {
   }
 
   async componentDidMount() {
-    await Office.context.mailbox.item.body.getAsync("text", function (async) {
-      //this.setState({ body: async.value });
-      document.getElementById('body').innerText = async.value;
+    Office.context.mailbox.item.body.getAsync("text",  (async) => {
+      this.setState({body: async.value});
     });
   }
 
   render() {
+    //#region ignore
     const { title, isOfficeInitialized } = this.props;
-
     if (!isOfficeInitialized) {
       return (
         <Progress
@@ -39,12 +38,13 @@ export default class App extends React.Component<AppProps, AppState> {
         />
       );
     }
+  //#endregion
 
     return (
       <div>
         <h1>Nigerian Prince Detector</h1>
         <h2>Message Body</h2>
-        <p id='body'></p>
+        <p id="body">{this.state.body}</p>
         <h2>Spelling Mistakes</h2>
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
       </div>
