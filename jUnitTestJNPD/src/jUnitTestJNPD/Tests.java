@@ -158,4 +158,37 @@ public class Tests {
 		assertEquals(connection.isLegit("Mike Smith"), notLegitResponse);
 	}
 
+	
+	/**
+	 * Tests if the function outputs the correct boolean statement based on the
+	 * given string. The string may or may not contain Non-ASCII characters.
+	 */
+	@Test
+	public void onlyASCIITest() {
+		AsciiManager m = new AsciiManager();
+
+		assertEquals(m.isOnlyAscii("Hello, My name is Muhammed Bello!"), true);
+		assertEquals(m.isOnlyAscii("Hèllö, My ñæme is Mûhæmmed Bèllö!"), false);
+		assertEquals(m.isOnlyAscii(""), true);
+		assertEquals(m.isOnlyAscii("♫"), false);
+		assertEquals(m.isOnlyAscii("€"), false);
+		assertEquals(m.isOnlyAscii(null), true);
+	}
+
+	
+	/**
+	 * Tests if the function outputs the correct boolean statement based on the
+	 * given name and if it contains non ASCII characters
+	 */
+	@Test
+	public void nameASCIITes() {
+		AsciiManager m = new AsciiManager();
+		
+		assertEquals(m.nameIsOnlyAscii("Abdullahi Ahmed Sumaila"), true);
+		assertEquals(m.nameIsOnlyAscii("Abdullàhi Sumaila"), false);
+		assertEquals(m.nameIsOnlyAscii(""), true);
+		assertEquals(m.nameIsOnlyAscii("Ahëbi ūgbabë"), false);
+		assertEquals(m.nameIsOnlyAscii("€"), false);
+		assertEquals(m.isOnlyAscii(null), true);
+	}
 }

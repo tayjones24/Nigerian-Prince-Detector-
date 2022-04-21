@@ -22,6 +22,7 @@ public class connectionDB {
 	final String PASS = "NigerianRoyalty1!";
 	
 	String database = "";
+	
 
 	/**
 	 * Connects to the Database

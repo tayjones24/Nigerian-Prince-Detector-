@@ -12,12 +12,16 @@ public class commaTester {
 			if ((tests.charAt(i) == '.' || tests.charAt(i) == '!' || tests.charAt(i) == '?')
 					&& i + 2 != tests.length()) {
 				punctCount++;
-				if (Character.isUpperCase(tests.charAt(i + 2)) && tests.charAt(i + 1) == ' '
+				if ((i + 2 < tests.length() && Character.isUpperCase(tests.charAt(i + 2))) && tests.charAt(i + 1) == ' '
 						&& i + 2 != tests.length()) {
 					passCount++;
 				}
 			}
+			if (Character.isLowerCase(tests.charAt(i)) && Character.isUpperCase(tests.charAt(i + 1))) {
+				return false;
+			}
+
 		}
-		return false;
+		return true;
 	}
 }
