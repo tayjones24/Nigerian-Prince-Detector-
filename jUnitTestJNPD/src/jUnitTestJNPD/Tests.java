@@ -3,6 +3,7 @@ package jUnitTestJNPD;
 import static org.junit.Assert.fail;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.awt.Color;
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 import java.sql.Connection;
@@ -15,9 +16,9 @@ import org.junit.jupiter.api.Test;
 
 public class Tests {
 
-	testQuestion question;
-	capsCheck capsCheck;
-	commaTester comma;
+	testQuestion question = new testQuestion();
+	capsCheck capsCheck = new capsCheck();
+	commaTester comma = new commaTester();
 
 	/**
 	 * Gives a test question to the user and asks the user to answer If the user
@@ -160,7 +161,6 @@ public class Tests {
 		assertEquals(connection.isLegit("Mike Smith"), notLegitResponse);
 	}
 
-	
 	/**
 	 * Tests if the function outputs the correct boolean statement based on the
 	 * given string. The string may or may not contain Non-ASCII characters.
@@ -177,20 +177,59 @@ public class Tests {
 		assertEquals(m.isOnlyAscii(null), true);
 	}
 
-	
 	/**
 	 * Tests if the function outputs the correct boolean statement based on the
 	 * given name and if it contains non ASCII characters
 	 */
 	@Test
-	public void nameASCIITes() {
+	public void nameASCIITest() {
 		AsciiManager m = new AsciiManager();
-		
+
 		assertEquals(m.nameIsOnlyAscii("Abdullahi Ahmed Sumaila"), true);
 		assertEquals(m.nameIsOnlyAscii("Abdullàhi Sumaila"), false);
 		assertEquals(m.nameIsOnlyAscii(""), true);
 		assertEquals(m.nameIsOnlyAscii("Ahëbi ūgbabë"), false);
 		assertEquals(m.nameIsOnlyAscii("€"), false);
 		assertEquals(m.isOnlyAscii(null), true);
+	}
+
+	/**
+	 * Tests if the display and the popUp window
+	 */
+	@Test
+	public void displayTest() {
+		Display panel = new Display(400, 400, Color.WHITE);
+
+		assertEquals(panel.selections.length, 5); // There are five menu items
+		assertEquals(panel.manager.c.getRed(), 255);
+		assertEquals(panel.selections[0], "Delete Email");
+	}
+
+	/**
+	 * Testing the functions of the PopUp window class
+	 */
+	@Test
+	public void popUpClassTest() {
+		PopUp pop = new PopUp();
+		Email email = new Email();
+
+		// Testing deleting function
+		pop.deleteEmail(email);
+		assertEquals(email.getContent(), "");
+
+		// Testing marking email as read function
+		assertEquals(pop.isRead, false);
+		pop.markAsRead();
+		assertEquals(pop.isRead, true);
+
+		// Testing moving an email to spam function
+		assertEquals(pop.spam.size(), 0);
+		pop.moveToSpam(email);
+		assertEquals(pop.spam.size(), 1);
+
+		// Testing reply function
+		pop.reply("Hello");
+		assertEquals(pop.email.getContent(), "Hello");
+
 	}
 }

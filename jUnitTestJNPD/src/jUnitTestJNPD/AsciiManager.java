@@ -1,5 +1,6 @@
 package jUnitTestJNPD;
 
+import java.awt.Color;
 import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
 import java.nio.charset.Charset;
@@ -14,6 +15,7 @@ import java.nio.charset.CharacterCodingException;
  *
  */
 public class AsciiManager {
+	Color c;
 
 	public AsciiManager() {
 
@@ -28,7 +30,6 @@ public class AsciiManager {
 	 * @return
 	 */
 	public boolean isOnlyAscii(String string) {
-
 		// If the string is null returns true because there are no non ASCII characters
 		// in a
 		// null string
@@ -46,7 +47,7 @@ public class AsciiManager {
 
 		// Handles the case when Non ASCII character is found
 		catch (CharacterCodingException e) {
-			System.err.println("RED FLAG");
+			c = Color.RED;
 			return false;
 		}
 
