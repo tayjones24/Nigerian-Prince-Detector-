@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 
 public class Driver {
 	public static void main(String[] args) {
-		// useful change a;sldkfjapoifjoiwekflkjh;alksjdfa;kl
+		// useful change !!
 		// Creating a new connection to the database
 		connectionDB connection = new connectionDB();
 		Connection connect = null;
