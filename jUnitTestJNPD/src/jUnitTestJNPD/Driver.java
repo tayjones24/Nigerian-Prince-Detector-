@@ -5,11 +5,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import javax.swing.JFrame;
-
 public class Driver {
 	public static void main(String[] args) {
-		// useful change !
+		// useful change !!
 		// Creating a new connection to the database
 		connectionDB connection = new connectionDB();
 		Connection connect = null;
@@ -21,14 +19,14 @@ public class Driver {
 
 		Display panel = new Display(400, 400, Color.WHITE);
 
-		SpellChecker.setUserDictionaryProvider(new FileUserDictionary());
-		SpellChecker.registerDictionaries(this.getClass().getResource("/dictionary"), "en");
-		SpellChecker.register(messageWriter);
-		SpellCheckerOptions sco = new SpellCheckerOptions();
-		sco.setCaseSensitive(true);
-		sco.setSuggestionsLimitMenu(10);
-		JPopupMenu popup = SpellChecker.createCheckerPopup(sco);
-		messageWriter.addMouseListener(new PopupListener(popup));
+//		SpellChecker.setUserDictionaryProvider(new FileUserDictionary());
+//		SpellChecker.registerDictionaries(this.getClass().getResource("/dictionary"), "en");
+//		SpellChecker.register(messageWriter);
+//		SpellCheckerOptions sco = new SpellCheckerOptions();
+//		sco.setCaseSensitive(true);
+//		sco.setSuggestionsLimitMenu(10);
+//		JPopupMenu popup = SpellChecker.createCheckerPopup(sco);
+//		messageWriter.addMouseListener(new PopupListener(popup));
 	}
 
 }
